@@ -1,4 +1,7 @@
 #Nashoba Planner
+Adam Vigneaux and Graham Atkinson
+February 28, 2014
+
 ---
 
 #Purpose
@@ -27,10 +30,10 @@ These are ambitious goals that we will add if we have time.
 4. Output
 
 ##Language
-We will use PHP for this project. PHP gives us the flexibility to deploy on the web so anybody can access the final project. PHP is fast, easy to learn and maintain, and has a good class system.
+We will use PHP for this project. PHP gives us the ability to deploy on the web so anybody can access the final product. PHP is fast, easy to learn, and has good database access.
 
 ##Collaboration
 Graham and I will collaborate using Git version control. Our code will be hosted on GitHub. Graham will work on the backend and Adam will focus on interface design, transferring data between componenets, and managing the database.
 
 ##Deployment
-We will deploy our application to either PagodaBox or Heroku. These are both Platform as a Service (PaaS) companies that provide easily scalable hosting for free.
+We will deploy our application to either PagodaBox or Heroku. These are both Platform as a Service (PaaS) companies that provide easily scalable hosting for free. Due to the school firewall, we cannot deploy at school. We will be able to test locally on the school computers but all deployment must be done at home.
