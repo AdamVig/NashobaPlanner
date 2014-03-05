@@ -1,6 +1,6 @@
 #Nashoba Planner
 Adam Vigneaux and Graham Atkinson
-February 28, 2014
+March 5, 2014
 
 ---
 
@@ -43,4 +43,11 @@ We will deploy our application to either PagodaBox or Heroku. These are both Pla
 
 #Website
 ##Sitemap
-+ 
++ Home
++ Calendar (view and edit the year calendar)
++ Hours (view hours each class has met)
++ Create PDF (generate and download a PDF)
+
+###Calendar Plugins
++ [http://kylestetz.github.io/CLNDR/](http://kylestetz.github.io/CLNDR/ "CLNDR")
++ [http://designmodo.com/javascript-calendars/](http://designmodo.com/javascript-calendars/ "Javascript Calendars")
