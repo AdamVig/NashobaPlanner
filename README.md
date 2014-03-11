@@ -51,3 +51,4 @@ We will deploy our application to either PagodaBox or Heroku. These are both Pla
 ###Calendar Plugins
 + [http://kylestetz.github.io/CLNDR/](http://kylestetz.github.io/CLNDR/ "CLNDR")
 + [http://designmodo.com/javascript-calendars/](http://designmodo.com/javascript-calendars/ "Javascript Calendars")
++ [http://bootstrap-calendar.azurewebsites.net/](http://bootstrap-calendar.azurewebsites.net/ "Bootstrap Calendar")
