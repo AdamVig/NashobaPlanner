@@ -6,29 +6,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nashoba Career Day</title>
-    <meta name="description" content="Create and modify the Nashoba Regional High School schedule.">
-    <meta name="author" content="Adam Vigneaux and Graham Atkinson">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/res/css/styles.css">
-    <link rel="stylesheet" href="/res/css/cover.css">
-    <!-- TODO: <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/ico/apple-touch-icon-precomposed.png"> -->
-    <!-- TODO: <link rel="shortcut icon" href="../res/ico/favicon.ico"> -->
+    <?php include '../res/html/head.html'; ?>
   </head>
   <body>
-    <nav>
-      <?php include '/res/html/nav.html'; ?>
+    <nav class="container">
+      <?php include '../res/html/nav.html'; ?>
     </nav>
     <div id="content">
       <div class="container">
-
+        <section>
+          <div class="row">
+            <div class="col-lg-4">
+              <h4>Heading</h4>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, harum, ea veniam pariatur ut repudiandae ipsum veritatis qui maiores illum debitis optio sed dolore odit quibusdam soluta vel! Ab, totam, incidunt vitae autem nam error natus sequi accusantium saepe at odit voluptatum praesentium quasi odio dignissimos quas delectus dolorem harum?
+              <br>
+              <a class="btn btn-success">Go</a>
+            </div>
+            <div class="col-lg-4">
+              <h4>Heading</h4>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, reprehenderit quia vel ullam blanditiis iste velit nulla vitae illo ipsum molestiae vero incidunt qui quaerat minima quam amet rerum et modi perspiciatis temporibus nisi sed ad fugiat fuga ea nobis optio voluptatum voluptatem aut perferendis architecto veniam praesentium omnis quas.
+              <br>
+              <a class="btn btn-success">Go</a>
+            </div>
+            <div class="col-lg-4">
+              <h4>Heading</h4>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, aspernatur, assumenda, perferendis, provident saepe a maxime officiis incidunt explicabo vitae adipisci quis cum iusto nam nostrum tempora ullam asperiores ea ratione excepturi sint nisi modi distinctio eaque nulla illo quod eos voluptate placeat reiciendis soluta laudantium doloremque voluptas. Ipsum, ducimus.
+              <br>
+              <a class="btn btn-success">Go</a>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
-    <footer>
-      <?php include '/res/html/footer.html'; ?>
+    <footer class="container">
+      <?php include '../res/html/footer.html'; ?>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
    </body>
 </html>
