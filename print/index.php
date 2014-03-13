@@ -10,7 +10,12 @@
   </head>
   <body>
     <nav class="container">
-      <?php include '../res/html/nav.html'; ?>
+      <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/schedule">Schedule</a></li>
+        <li><a href="/print">Print</a></li>
+      </ul>
+      <h3 class="text-muted">Nashoba Planner</h3>
     </nav>
     <div id="content">
       <div class="container">
