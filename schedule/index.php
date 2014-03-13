@@ -6,54 +6,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nashoba Career Day</title>
-    <meta name="description" content="Create and modify the Nashoba Regional High School schedule.">
-    <meta name="author" content="Adam Vigneaux and Graham Atkinson">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/res/css/styles.css">
-    <link rel="stylesheet" href="/res/css/cover.css">
-    <!-- TODO: <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/ico/apple-touch-icon-precomposed.png"> -->
-    <!-- TODO: <link rel="shortcut icon" href="../res/ico/favicon.ico"> -->
+    <title>Schedule &middot; Nashoba Planner</title>
+    <?php include '../res/html/head.html'; ?>
   </head>
   <body>
-    <div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
-              <ul class="nav masthead-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Nashoba Planner</a>
+          </div>
+          <div class="collapse navbar-collapse" id="collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/">Home</a></li>
+              <li><a href="/schedule">Create schedule</a></li>
+              <li><a href="/print">Print</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+      <div id="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <h4>Heading</h4>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, harum, ea veniam pariatur ut repudiandae ipsum veritatis qui maiores illum debitis optio sed dolore odit quibusdam soluta vel! Ab, totam, incidunt vitae autem nam error natus sequi accusantium saepe at odit voluptatum praesentium quasi odio dignissimos quas delectus dolorem harum?
+              <br>
+              <a class="btn btn-success">Go</a>
+            </div>
+            <div class="col-lg-4">
+              <h4>Heading</h4>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, reprehenderit quia vel ullam blanditiis iste velit nulla vitae illo ipsum molestiae vero incidunt qui quaerat minima quam amet rerum et modi perspiciatis temporibus nisi sed ad fugiat fuga ea nobis optio voluptatum voluptatem aut perferendis architecto veniam praesentium omnis quas.
+              <br>
+              <a class="btn btn-success">Go</a>
+            </div>
+            <div class="col-lg-4">
+              <h4>Heading</h4>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, aspernatur, assumenda, perferendis, provident saepe a maxime officiis incidunt explicabo vitae adipisci quis cum iusto nam nostrum tempora ullam asperiores ea ratione excepturi sint nisi modi distinctio eaque nulla illo quod eos voluptate placeat reiciendis soluta laudantium doloremque voluptas. Ipsum, ducimus.
+              <br>
+              <a class="btn btn-success">Go</a>
             </div>
           </div>
-
-          <div class="inner cover">
-            <h1 class="cover-heading">Cover your page.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">Learn more</a>
-            </p>
-          </div>
-
-          <div class="mastfoot">
-            <div class="inner">
-              <p>By <a href="http://adamvig.com">Adam Vigneaux</a> and Graham Atkinson.</p>
-            </div>
-          </div>
-
         </div>
-
       </div>
-
+      <footer class="container">
+        <?php include '../res/html/footer.html'; ?>
+      </footer>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-   </body>
+  </body>
 </html>
