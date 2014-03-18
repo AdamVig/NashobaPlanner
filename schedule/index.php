@@ -8,6 +8,8 @@
   <head>
     <title>Schedule &middot; Nashoba Planner</title>
     <?php include '../res/html/head.html'; ?>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="../res/css/clndr.css">
   </head>
   <body>
     <div class="container">
@@ -24,7 +26,7 @@
           <div class="collapse navbar-collapse" id="collapse">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="/">Home</a></li>
-              <li><a href="/schedule">Create schedule</a></li>
+              <li class="active"><a href="/schedule">Create schedule</a></li>
               <li><a href="/print">Print</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
@@ -32,31 +34,38 @@
       </nav>
       <div id="content">
         <div class="container">
-          <div class="row">
-            <div class="col-lg-4">
-              <h4>Heading</h4>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, harum, ea veniam pariatur ut repudiandae ipsum veritatis qui maiores illum debitis optio sed dolore odit quibusdam soluta vel! Ab, totam, incidunt vitae autem nam error natus sequi accusantium saepe at odit voluptatum praesentium quasi odio dignissimos quas delectus dolorem harum?
-              <br>
-              <a class="btn btn-success">Go</a>
-            </div>
-            <div class="col-lg-4">
-              <h4>Heading</h4>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, reprehenderit quia vel ullam blanditiis iste velit nulla vitae illo ipsum molestiae vero incidunt qui quaerat minima quam amet rerum et modi perspiciatis temporibus nisi sed ad fugiat fuga ea nobis optio voluptatum voluptatem aut perferendis architecto veniam praesentium omnis quas.
-              <br>
-              <a class="btn btn-success">Go</a>
-            </div>
-            <div class="col-lg-4">
-              <h4>Heading</h4>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, aspernatur, assumenda, perferendis, provident saepe a maxime officiis incidunt explicabo vitae adipisci quis cum iusto nam nostrum tempora ullam asperiores ea ratione excepturi sint nisi modi distinctio eaque nulla illo quod eos voluptate placeat reiciendis soluta laudantium doloremque voluptas. Ipsum, ducimus.
-              <br>
-              <a class="btn btn-success">Go</a>
-            </div>
+          <div class="cal1">
           </div>
+          <script type="text/template" id="template-calendar">
+            <div class="clndr-controls">
+              <div class="clndr-previous-button">&lsaquo;</div>
+              <div class="month"><%= month %></div>
+              <div class="clndr-next-button">&rsaquo;</div>
+            </div>
+            <div class="clndr-grid">
+              <div class="days-of-the-week">
+                <% _.each(daysOfTheWeek, function(day) { %>
+                  <div class="header-day"><%= day %></div>
+                <% }); %>
+                <div class="days">
+                  <% _.each(days, function(day) { %>
+                    <div class="<%= day.classes %>"><%= day.day %></div>
+                  <% }); %>
+                </div>
+              </div>
+            </div>
+            <div class="clndr-today-button">Today</div>
+          </script>
         </div>
       </div>
       <footer class="container">
         <?php include '../res/html/footer.html'; ?>
       </footer>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+      <script src="../res/js/json2.js"></script>
+      <script src="../res/js/moment-2.5.1.js"></script>
+      <script src="../res/js/clndr.js"></script>
+      <script src="../res/js/site.js"></script>
     </div>
   </body>
 </html>
