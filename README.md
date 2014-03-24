@@ -1,53 +1,53 @@
 #Nashoba Planner
 Adam Vigneaux and Graham Atkinson
-March 5, 2014
-
----
+March 20, 2014
 
 ##General Information
 ###Purpose
-To make it simple for administration and guidance to generate and re-generate the Nashoba school schedule.
+To provide a tool that allows administration and guidance to automatically generate and re-generate the Nashoba school schedule.
 
 ###Description
-This project will result in a polished, easy-to-use web interface for creating the Nashoba schedule. The main goal is to save administration and the office staff as much work as possible. Currently, the office staff must manually create a PDF of the schedule and retype it every time the schedule changes. This product will automatically generate the schedule PDF. It will also automatically ripple any changes made through the entire schedule.
+This project will result in a web interface for creating the Nashoba schedule. The main goal is to save administration and the office staff as much work as possible. Currently, the office staff must manually type a PDF of the schedule. If it changes, they must re-type the whole schedule. Our application will automatically generate the schedule and then regenerate it if there are any changes.
 
-###Roadmap
-1. Setup deployment and database
-2. Basic interface
-2. Backend communicates between interface and database
-3. Backend can create the schedule given a starting day
+###Development Roadmap
+1. Set up workspaces
+2. Develop a functional layout for the website that will act as a frameowrk for the interface
+3. Create a function that outputs the schedule for the year
+4. Display the above function's output in a calendar view
 
 ###Stretch Goals
-These are ambitious goals that we will add if we have time.
+These are features that we will add if we have time.
++ Calculate how many hours each class period will meet over the course of the year
 + Output schedule to a Google Calendar
-+ Automatically distribute PDF to all staff via email
-+ Calculate number of hours per period in the year
++ Distribute schedule to all staff via email
 
-##Technical Information
+##Technical Specifications
 ###Components
-1. Interface
-2. Backend
-3. Database
-4. Output
+1. Interface: how the user interacts with the application
+2. Backend: creates the schedule
+3. Database: stores data
+4. Output: creates files of the schedule for distribution
 
 ###Language
-We will use PHP for this project. PHP gives us the ability to deploy on the web so anybody can access the final product. PHP is fast, easy to learn, and has good database access.
+We will use PHP for this project. PHP is a server-side language, giving it several advantages over Google Script:
++ Simple access to an SQL database, which is much faster and more flexible than a Google Spreadsheet
++ Integrates seamlessly with HTML, allowing for easier web page development
++ Faster execution of scripts
++ Much simpler form development, allowing for many types of data and strict validation
 
 ###Collaboration
-Graham and I will collaborate using Git version control. Our code will be hosted on GitHub. Graham will work on the backend and Adam will focus on interface design, transferring data between componenets, and managing the database.
+Graham and I will collaborate using the industry standard, git version control. Version control allows programmers to collaborate on a project without rewriting each others' changes. Our code will be hosted on GitHub, the most popular platform for hosting and accessing programming projects.
+
+Graham will work on the backend and Adam will focus on the interface.
 
 ###Deployment
-We will deploy our application to either PagodaBox or Heroku. These are both Platform as a Service (PaaS) companies that provide easily scalable hosting for free. Due to the school firewall, we cannot deploy at school. We will be able to test locally on the school computers but all deployment must be done at home.
+The application will be hosted online, which will allow users to access it from home and school. We will deploy our application to Heroku. This is a Platform as a Service (PaaS) company that provides easily scalable hosting for free. Due to the school firewall, we cannot deploy at school. We will be able to test locally on the school computers but all deployment must be done at home. Other platforms we could use are Google App Engine, which is too complicated for our needs, and shared hosting, which costs money.
 
----
-
-#Website
-##Sitemap
+##Website
+###Sitemap
 + Home
-+ Calendar (view and edit the year calendar)
-+ Hours (view hours each class has met)
-+ Create PDF (generate and download a PDF)
++ Schedule (view the year calendar)
++ Print (print or download the schedule)
 
-###Calendar Plugins
+###Plugin Documentation
 + [http://kylestetz.github.io/CLNDR/](http://kylestetz.github.io/CLNDR/ "CLNDR")
-+ [http://bootstrap-calendar.azurewebsites.net/](http://bootstrap-calendar.azurewebsites.net/ "Bootstrap Calendar")
