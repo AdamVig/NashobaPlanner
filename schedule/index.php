@@ -34,7 +34,7 @@
                 <script type="text/template" id="template-calendar">
                   <div class="text-center">
                     <button class="btn btn-primary pull-left clndr-previous-button">Previous Month</button>
-                    <%= month %> <%= year %>
+                    <span class="title"><%= month %> <%= year %></span>
                     <button class="btn btn-primary pull-right clndr-next-button">Next Month</button>
                   </div>
                   <br>
@@ -85,9 +85,10 @@
                   { date: thisMonth + '-05', title: 'A1' },
                   { date: thisMonth + '-20', title: 'B2' }
                 ];
+                //var eventsArray = <?php echo json_encode($events); ?>;
                 clndr = $('.calendar').clndr({
-                  template: $('#template-calendar').html(),
-                  events: eventsArray
+                  template: $('#template-calendar').html(), //Get template from HTML
+                  events: eventsArray //Get events from given array
                 });
                 // bind month navigation to the left and right arrow keys
                 $(document).keydown( function(e) {
