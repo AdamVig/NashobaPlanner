@@ -32,15 +32,12 @@
             <div class="container">
               <div class="calendar">
                 <script type="text/template" id="template-calendar">
-                  <div class="clndr-controls">
-                    <div class="clndr-control-button">
-                      <span class="clndr-previous-button">previous</span>
-                    </div>
-                    <div class="month"><%= month %> <%= year %></div>
-                    <div class="clndr-control-button rightalign">
-                      <span class="clndr-next-button">next</span>
-                    </div>
+                  <div class="text-center">
+                    <button class="btn btn-primary pull-left clndr-previous-button">Previous Month</button>
+                    <%= month %> <%= year %>
+                    <button class="btn btn-primary pull-right clndr-next-button">Next Month</button>
                   </div>
+                  <br>
                   <table class="clndr-table" border="0" cellspacing="0" cellpadding="0">
                     <thead>
                       <tr class="header-days">
@@ -83,20 +80,15 @@
             <script src="../res/js/clndr.js"></script>
             <script>
               $(document).ready( function() {
-
-                // here's some magic to make sure the dates are happening this month.
                 var thisMonth = moment().format('YYYY-MM');
-
                 var eventsArray = [
-                  { date: thisMonth + '-01', title: 'A1' },
+                  { date: thisMonth + '-05', title: 'A1' },
                   { date: thisMonth + '-20', title: 'B2' }
                 ];
-
                 clndr = $('.calendar').clndr({
                   template: $('#template-calendar').html(),
                   events: eventsArray
                 });
-
                 // bind month navigation to the left and right arrow keys
                 $(document).keydown( function(e) {
                   if(e.keyCode == 37) {
