@@ -3,6 +3,10 @@
   max-width: 600px;
   font-size: 14px;
 }
+.calendar .title {
+  font-size: 2em;
+  line-height: 1.42;
+}
 .calendar .clndr .clndr-table {
   table-layout: fixed;
   width: 100%;
