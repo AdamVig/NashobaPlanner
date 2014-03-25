@@ -51,3 +51,27 @@ The application will be hosted online, which will allow users to access it from 
 
 ###Plugin Documentation
 + [http://kylestetz.github.io/CLNDR/](http://kylestetz.github.io/CLNDR/ "CLNDR")
+	+ Use: display a calendar using a template
+	+ Justification: making our own calendar library would be reinventing the wheel
+	+ Dependencies:
+		+ Underscore.js templating engine
+		+ JSON2.js JSON library
+		+ Moment.js time library
+
+##Backend
+###Data Format
++ Data will be passed from the backend to the frontend in the following format:
+
+```	
+{
+	{
+		date: string (YYYY-MM-DD),
+		title: string (letternumber)
+	},
+	{
+		date: "2014-03-25",
+		title: "A1"
+	}
+}	
+	
+```
