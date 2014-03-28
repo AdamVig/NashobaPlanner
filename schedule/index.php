@@ -1,4 +1,8 @@
 <?php
+
+require "graham.php";
+$yearSchedule = genYear();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -80,12 +84,7 @@
             <script src="../res/js/clndr.js"></script>
             <script>
               $(document).ready( function() {
-                var thisMonth = moment().format('YYYY-MM');
-                var eventsArray = [
-                  { date: thisMonth + '-05', title: 'A1' },
-                  { date: thisMonth + '-20', title: 'B2' }
-                ];
-                //var eventsArray = <?php //echo json_encode($events); ?>;
+                var eventsArray = <?php echo json_encode($yearSchedule); ?>;
                 clndr = $('.calendar').clndr({
                   template: $('#template-calendar').html(), //Get template from HTML
                   events: eventsArray //Get events from given array
