@@ -40,9 +40,8 @@ $noSchoolDays = [
 function isSchool(DateTime $date)
 {
 	global $noSchoolDays;
-	$weekday = $date->format('w'); //Sunday = 0, Saturday = 6
 	if (in_array($date->format('Y-m-d'), $noSchoolDays)) {
-		$isSchool = false;
+		$isSchool = getHoliday($date);
 	} else {
 		$isSchool = true;
 	}

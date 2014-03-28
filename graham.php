@@ -1,28 +1,37 @@
 <?php
+require "helpers.php";
 date_default_timezone_set ("America/New_York");
 
-/**
- * Generate base Nashoba Schedule
- * @return      [[schedule[]],[period hours[]]]
- */
+
 function genYear()
 {
 
 $YTD = [0,0,0,0,0,0,0];
 //     [A,B,C,D,E,F,G]
-$currentDate = new DateTime("2013-09-03");
+$currentDate = new DateTime("2013-09-02");
 $finalDate = new DateTime("2014-06-18");
 $testDate;
 $dayCount = 0;
+$arrayPlace = 0;
 $fullSchedule;
     for ($currentDate; $currentDate<=$finalDate; $currentDate->modify("+1 day")) {
-        $fullSchedule[$dayCount]= getDay($dayCount,"normal",$currentDate)[0];
+        if (isSchool($currentDate)===true){
+            $fullSchedule[$arrayPlace]= getDay($dayCount,"normal",$currentDate)[0];
+            $dayCount++;
+            $arrayPlace++;
+       }
+        else{
+            $displayDate = $currentDate;
+            $fullSchedule[$arrayPlace] =[$displayDate->format('Y-m-d') ,isSchool($currentDate)];
+            $arrayPlace++;
+        }
+
         $testDate = $currentDate;
         if ($testDate->format('w') == 5)
         {
             $currentDate->modify("+2 days") ;
         }
-        $dayCount++;
+
     }
 
 $output = $fullSchedule;
