@@ -4,8 +4,8 @@
 <html>
   <head>
     <title>Schedule &middot; Nashoba Planner</title>
-    <?php include '../res/html/head.html'; ?>
     <link rel="stylesheet" href="../res/css/clndr.css">
+    <?php include '../res/html/head.html'; ?>
   </head>
   <body>
     <div class="container">
@@ -33,9 +33,9 @@
               <div class="calendar">
                 <script type="text/template" id="template-calendar">
                   <div class="text-center">
-                    <button class="btn btn-primary pull-left clndr-previous-button">Previous Month</button>
+                    <button class="btn btn-primary pull-left clndr-previous-button">Previous<span class="hidden-xs"> Month</span></button>
                     <span class="title"><%= month %> <%= year %></span>
-                    <button class="btn btn-primary pull-right clndr-next-button">Next Month</button>
+                    <button class="btn btn-primary pull-right clndr-next-button">Next<span class="hidden-xs"> Month</span></button>
                   </div>
                   <br>
                   <table class="clndr-table" border="0" cellspacing="0" cellpadding="0">
@@ -85,7 +85,7 @@
                   { date: thisMonth + '-05', title: 'A1' },
                   { date: thisMonth + '-20', title: 'B2' }
                 ];
-                //var eventsArray = <?php echo json_encode($events); ?>;
+                //var eventsArray = <?php //echo json_encode($events); ?>;
                 clndr = $('.calendar').clndr({
                   template: $('#template-calendar').html(), //Get template from HTML
                   events: eventsArray //Get events from given array
@@ -101,7 +101,6 @@
                     clndr.forward();
                   }
                 });
-
               });
             </script>
           </div>
