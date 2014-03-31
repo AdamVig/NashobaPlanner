@@ -1,6 +1,6 @@
 <?php
 
-require "graham.php";
+require "../graham.php";
 $yearSchedule = genYear();
 
 ?>
