@@ -16,7 +16,7 @@ $arrayPlace = 0;
 $fullSchedule;
     for ($currentDate; $currentDate<=$finalDate; $currentDate->modify("+1 day")) {
         if (isSchool($currentDate)===true){
-            $fullSchedule[$arrayPlace]= getDay($dayCount,"normal",$currentDate)[0];
+            $fullSchedule[$arrayPlace]= ["date"=>getDay($dayCount,"normal",$currentDate)[0][0], "title"=>getDay($dayCount,"normal",$currentDate)[0][1]];
             $dayCount++;
             $arrayPlace++;
        }
@@ -70,3 +70,4 @@ if ($type == "activity")
 $output = [[$date->format('Y-m-d'),$schedule[0]],$classMinutes];
 return $output;
 }
+//print_r(genYear());
