@@ -70,4 +70,4 @@ if ($type == "activity")
 $output = [[$date->format('Y-m-d'),$schedule[0]],$classMinutes];
 return $output;
 }
-print_r(genYear());
+//print_r(genYear());
