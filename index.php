@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Nashoba Planner</title>
     <?php include '/res/html/head.html'; ?>
     <link rel="stylesheet" href="/res/css/cover.css">
   </head>
@@ -10,7 +11,7 @@
         <div class="cover-container">
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">Nashoba Career Day Scheduler</h3>
+              <h3 class="masthead-brand">Nashoba Planner</h3>
               <ul class="nav masthead-nav">
                 <li class="active"><a href="/">Home</a></li>
                 <li><a href="/schedule">Schedule</a></li>
@@ -19,8 +20,8 @@
             </div>
           </div>
           <div class="inner cover">
-            <h1 class="cover-heading">Nashoba Career Day Scheduler</h1>
-            <p class="lead">When fully developed, this application will remove 95% of the work associated with scheduling career day at Nashoba Regional High School.</p>
+            <h1 class="cover-heading">Nashoba Planner</h1>
+            <p class="lead">Create and modify the Nashoba Regional High School rotation schedule.</p>
             <p class="lead">
               <a href="/schedule" class="btn btn-lg btn-default">Get started</a>
             </p>
