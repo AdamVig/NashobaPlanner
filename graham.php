@@ -22,7 +22,7 @@ $fullSchedule;
        }
         else{
             $displayDate = $currentDate;
-            $fullSchedule[$arrayPlace] =[$displayDate->format('Y-m-d') ,isSchool($currentDate)];
+            $fullSchedule[$arrayPlace] =["date" => $displayDate->format('Y-m-d') ,"title" => isSchool($currentDate)];
             $arrayPlace++;
         }
 
