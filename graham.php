@@ -10,10 +10,8 @@ $YTD = [0,0,0,0,0,0,0];
 //     [A,B,C,D,E,F,G]
 $currentDate = new DateTime("2013-09-02");
 $finalDate = new DateTime("2014-06-18");
-$testDate;
 $dayCount = 0;
 $arrayPlace = 0;
-$fullSchedule;
     for ($currentDate; $currentDate<=$finalDate; $currentDate->modify("+1 day")) {
         if (isSchool($currentDate)===true){
             $fullSchedule[$arrayPlace]= ["date"=>getDay($dayCount,"normal",$currentDate)[0][0], "title"=>getDay($dayCount,"normal",$currentDate)[0][1]];
@@ -21,8 +19,7 @@ $fullSchedule;
             $arrayPlace++;
        }
         else{
-            $displayDate = $currentDate;
-            $fullSchedule[$arrayPlace] =["date" => $displayDate->format('Y-m-d') ,"title" => isSchool($currentDate)];
+            $fullSchedule[$arrayPlace] =["date" => $currentDate->format('Y-m-d') ,"title" => isSchool($currentDate)];
             $arrayPlace++;
         }
 
@@ -45,7 +42,6 @@ function getDay($dayNum,$type,$date)
 $classMinutes = [0,0,0,0,0,0,0];
 $periods = ["A","B","C","D","E","F","G"];
 $offset = ($dayNum % 7);
-$schedule;
 if ($type == "normal")
 {
     for ($i=0; $i<7; $i++)

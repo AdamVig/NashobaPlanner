@@ -41,15 +41,11 @@ function isSchool(DateTime $date)
 {
 	global $noSchoolDays;
 	if (in_array($date->format('Y-m-d'), $noSchoolDays)) {
-		$isSchool = getHoliday($date);
+		$isSchool = array_search($date->format('Y-m-d'), $noSchoolDays);
 	} else {
 		$isSchool = true;
 	}
 	return $isSchool;
 }
 
-function getHoliday(DateTime $date)
-{
-	global $noSchoolDays;
-	return array_search($date->format('Y-m-d'), $noSchoolDays);
-}
+
