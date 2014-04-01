@@ -40,8 +40,8 @@ $noSchoolDays = [
 function isSchool(DateTime $date)
 {
 	global $noSchoolDays;
-	if (in_array($date->format('Y-m-d'), $noSchoolDays)) {
-		$isSchool = array_search($date->format('Y-m-d'), $noSchoolDays);
+	if (array_key_exists($date->format('Y-m-d'), $noSchoolDays)) {
+		$isSchool = $noSchoolDays[$date->format('Y-m-d')];
 	} else {
 		$isSchool = true;
 	}
