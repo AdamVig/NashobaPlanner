@@ -25,12 +25,13 @@ footer {
    CALENDAR
    ========================================================================== */
 .event-title {
+  height: inherit;
   text-align: center;
   font-size: 1.5em;
   font-weight: bolder;
 }
-.event-title>.long {
-  font-size: 1.25em;
+.event-title .long {
+  font-size: 1.1em;
 }
 .calendar .header-day {
   font-size: 1.25em;
@@ -45,6 +46,9 @@ footer {
     max-width: 1000px;
   }
   .calendar .clndr .clndr-table tr {
-    height: 141px;
+    height: 141px; /* 66% increase */
+  }
+  .event-title {
+    font-size: 2em;
   }
 }
