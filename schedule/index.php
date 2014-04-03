@@ -51,19 +51,25 @@ $yearSchedule = genYear();
                       </tr>
                     </thead>
                     <tbody>
-                      <% for(var i = 0; i < numberOfRows; i++){ %>
+                      <% for (var i = 0; i < numberOfRows; i++){ %>
                       <tr>
-                        <% for(var j = 0; j < 7; j++){ %>
+                        <% for (var j = 0; j < 7; j++){ %>
                           <% var d = j + i * 7; %>
                         <td class="<%= days[d].classes %>">
                           <div class="day-contents">
                             <%= days[d].day %>
-                            <% _.each(eventsThisMonth, function(event) { %>
-                              <% dayDate = moment(days[d]).format('YYYY-MM-DD'); %>
-                              <% if (event.date == dayDate && days[d].classes.indexOf('adjacent-month') == -1) { %>
-                                <div class="event-title"><%= event.title %></div>
+                            <% var dayDate = moment(days[d]).format('YYYY-MM-DD'); %>
+                            <div class="event-title">
+                              <% if (days[d].events[0]) { %>
+                                <% if (days[d].events[0]['title'].length > 2) { %>
+                                  <span class="long">
+                                    <%= days[d].events[0]['title'] %>
+                                  </span>
+                                <% } else { %>
+                                  <%= days[d].events[0]['title'] %>
+                                <% } %>
                               <% } %>
-                            <% }); %>
+                            </div>
                           </div>
                         </td>
                         <% } %>
@@ -78,7 +84,7 @@ $yearSchedule = genYear();
             <footer class="container">
               <?php include '../res/html/footer.html'; ?>
             </footer>
-            <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+            <script src="../res/js/underscore-min.js"></script>
             <script src="../res/js/json2.js"></script>
             <script src="../res/js/moment-2.5.1.js"></script>
             <script src="../res/js/clndr.js"></script>
@@ -87,7 +93,7 @@ $yearSchedule = genYear();
                 var eventsArray = <?php echo json_encode($yearSchedule); ?>;
                 clndr = $('.calendar').clndr({
                   template: $('#template-calendar').html(), //Get template from HTML
-                  events: eventsArray //Get events from given array
+                  events: eventsArray, //Get events from given array
                 });
                 // bind month navigation to the left and right arrow keys
                 $(document).keydown( function(e) {
