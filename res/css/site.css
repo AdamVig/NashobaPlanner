@@ -29,11 +29,22 @@ footer {
   font-size: 1.5em;
   font-weight: bolder;
 }
+.event-title>.long {
+  font-size: 1.25em;
+}
 .calendar .header-day {
   font-size: 1.25em;
 }
 @media (max-width: 450px) {
   .calendar .title {
     font-size: 1.3em;
+  }
+}
+@media (min-width: 1000px) {
+  .calendar {
+    max-width: 1000px;
+  }
+  .calendar .clndr .clndr-table tr {
+    height: 141px;
   }
 }
