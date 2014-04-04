@@ -31,14 +31,22 @@ footer {
   font-weight: bolder;
 }
 .event-title .long {
-  font-size: 1.1em;
+  font-size: 0.9em;
 }
 .calendar .header-day {
   font-size: 1.25em;
 }
-@media (max-width: 450px) {
+@media (max-width: 590px) {
   .calendar .title {
-    font-size: 1.3em;
+    font-size: 1.4em;
+  }
+  .event-title .long {
+    font-size: 0.5em;
+  }
+}
+@media (min-width: 768px) {
+  .event-title .long {
+    font-size: 0.8em;
   }
 }
 @media (min-width: 1000px) {
@@ -50,5 +58,8 @@ footer {
   }
   .event-title {
     font-size: 2em;
+  }
+  .event-title .long {
+    font-size: 1.1em;
   }
 }
