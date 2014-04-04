@@ -13,20 +13,20 @@ $finalDate = new DateTime("2014-06-18");
 $dayCount = 0;
 $arrayPlace = 0;
     for ($currentDate; $currentDate<=$finalDate; $currentDate->modify("+1 day")) {
-        if (isSchool($currentDate)===true){
-            $fullSchedule[$arrayPlace]= ["date"=>getDay($dayCount,"normal",$currentDate)[0][0], "title"=>getDay($dayCount,"normal",$currentDate)[0][1]];
-            $dayCount++;
-            $arrayPlace++;
-       }
-        else{
+        if (($currentDate->format('w') != 6) && ($currentDate->format('w') != 0)){
+            if (isSchool($currentDate)===true){
+                $fullSchedule[$arrayPlace]= ["date"=>getDay($dayCount,"normal",$currentDate)[0][0], "title"=>getDay($dayCount,"normal",$currentDate)[0][1]];
+                $dayCount++;
+                $arrayPlace++;
+           }
+            else{
+                $fullSchedule[$arrayPlace] =["date" => $currentDate->format('Y-m-d') ,"title" => isSchool($currentDate)];
+                $arrayPlace++;
+            }
+        }
+        else if (isSchool($currentDate) != 1){
             $fullSchedule[$arrayPlace] =["date" => $currentDate->format('Y-m-d') ,"title" => isSchool($currentDate)];
             $arrayPlace++;
-        }
-
-        $testDate = $currentDate;
-        if ($testDate->format('w') == 5)
-        {
-            $currentDate->modify("+2 days") ;
         }
 
     }
@@ -61,7 +61,21 @@ if ($type == "half")
 }
 if ($type == "activity")
 {
-
+    for ($i=0; $i<8; $i++)
+    {
+        if ($i == 2){
+            $schedule[2] = "Activity Period";
+        }
+        else {
+        $schedule[$i] = $periods[($offset+$i)%7].(($dayNum % 8)+1);
+        $classMinutes[($offset+$i)%7]+=38;
+        if ($i == 4)
+        {
+            $schedule[$i] = $periods[($offset+$i)%7].(($dayNum % 8)+1)."L";
+            $classMinutes[($offset+$i)%7]+=31;
+        }
+        }
+    }
 }
 $output = [[$date->format('Y-m-d'),$schedule[0]],$classMinutes];
 return $output;
