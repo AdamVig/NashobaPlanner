@@ -1,6 +1,7 @@
 <?php
 
-
+require "../graham.php";
+$yearSchedule = genYear();
 
 ?>
 <!DOCTYPE html>
@@ -32,9 +33,19 @@
       </nav>
       <div id="content">
         <div class="container">
-          <script type="text/template">
-            
+          <div class="controls text-center">
+            <button onclick="window.print();" class="btn btn-success btn-lg print">Print Schedule</button>
+          </div>
+          <script type="text/template" id="template">
+            <% _.each(events, function(day) { %>
+              <div class="day">
+                <div class="day-title"><%- day.title %></div>
+                <div class="day-date"><%= day.date %></div>
+              </div>
+              <br>
+            <% }); %>
           </script>
+          <div class="target"></div>
         </div>
       </div>
       <footer class="container">
@@ -42,9 +53,9 @@
       </footer>
       <script src="../res/js/underscore-min.js"></script>
       <script>
-        $(document).ready( function() {
-          var eventsArray = <?php echo json_encode($yearSchedule); ?>;
-        });
+        var events = <?php echo json_encode($yearSchedule); ?>;
+        var parsed = _.template($("#template").html(), {events:events});
+        $(".target").html(parsed);
       </script>
     </div>
   </body>
