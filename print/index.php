@@ -39,7 +39,7 @@ $yearSchedule = genYear();
           <script type="text/template" id="template">
             <% _.each(events, function(day) { %>
               <div class="day">
-                <div class="day-title"><%- day.title %></div>
+                <div class="day-title"><%= day.title %></div>
                 <div class="day-date"><%= day.date %></div>
               </div>
               <br>
@@ -53,10 +53,19 @@ $yearSchedule = genYear();
       </footer>
       <script src="../res/js/underscore-min.js"></script>
       <script src="../res/js/moment-2.5.1.js"></script>
+      <script src="./print.js"></script>
       <script>
         var events = <?php echo json_encode($yearSchedule); ?>;
         var parsed = _.template($("#template").html(), {events:events});
-        $(".target").html(parsed);
+        //$(".target").html(parsed);
+        var testEvents = [
+          {'title': 'A1', 'date':'2014-04-07'},
+          {'title': 'B2', 'date':'2014-04-08'},
+          {'title': 'C3', 'date':'2014-04-09'},
+          {'title': 'D4', 'date':'2014-04-10'},
+          {'title': 'E5', 'date':'2014-04-11'}
+        ];
+        $(".target").html(makeWeek(testEvents));
       </script>
     </div>
   </body>
