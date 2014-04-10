@@ -52,6 +52,7 @@ $yearSchedule = genYear();
         <?php include '../res/html/footer.html'; ?>
       </footer>
       <script src="../res/js/underscore-min.js"></script>
+      <script src="../res/js/moment-2.5.1.js"></script>
       <script>
         var events = <?php echo json_encode($yearSchedule); ?>;
         var parsed = _.template($("#template").html(), {events:events});
