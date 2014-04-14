@@ -6,8 +6,8 @@ date_default_timezone_set ("America/New_York");
 function genYear()
 {
 
-    $YTD = [0,0,0,0,0,0,0];
-    //     [A,B,C,D,E,F,G]
+    //Hours[A, B, C, D, E, F, G]
+    $YTD = [0, 0, 0, 0, 0, 0, 0];
     $currentDate = new DateTime("2013-09-02");
     $finalDate = new DateTime("2014-06-18");
     $dayCount = 0;
@@ -73,4 +73,22 @@ function getDay($dayNum,$type,$date)
     $output = [[$date->format('Y-m-d'),$schedule[0]],$classMinutes];
     return $output;
 }
-print_r(genYear());
+
+function storeSchedule($schedule)
+{
+    $db = new mysqli('localhost', 'admin', 'admin', 'main');
+    $query = "INSERT INTO schedule (Date,Schedule) VALUES ";
+    $first = true;
+    foreach ($schedule as $day) {
+        //Add comma first or not
+        if ($first) {
+            $first = false;
+        } else {
+            $query .= ",";
+        }
+        //Format: ('2014-04-14','A1')
+        $query .= "('".$day['date']."','".$db->escape_string($day['title'])."')";
+    }
+    $query .= ';';
+    $db->query($query);
+} 
