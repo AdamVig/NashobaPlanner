@@ -50,6 +50,19 @@ footer {
 .calendar .clndr .clndr-table tr .day.event.holiday:hover {
   background-color: #FFB935;
 }
+.calendar .clndr .clndr-table tr .day.event input {
+  width: 40px;
+}
+.calendar .clndr .clndr-table tr .day.event.holiday textarea {
+  width: 100%;
+  text-align: center;
+  resize: none; /* Hide resize corner */
+}
+.calendar .clndr .clndr-table tr .day.event input, .calendar .clndr .clndr-table tr .day.event textarea {
+  background-color: transparent;
+  border: 1px solid #5B5E51;
+  padding: 2px;
+}
 @media (max-width: 590px) {
   .calendar .title {
     font-size: 1.4em;

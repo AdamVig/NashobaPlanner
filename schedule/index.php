@@ -66,7 +66,11 @@ storeSchedule($yearSchedule);
                             <%= days[d].day %>
                             <div class="event-title">
                               <% if (days[d].events[0]) { %>
-                                <input type="text" value="<%= days[d].events[0]['title'] %>">
+                                <% if (days[d].events[0].title.length > 2) { %>
+                                  <textarea><%= days[d].events[0]['title'] %></textarea>
+                                <% } else { %>
+                                  <input type="text" maxlength="2" value="<%= days[d].events[0]['title'] %>">
+                                <% } %>
                               <% } %>
                             </div>
                           </div>
@@ -93,17 +97,6 @@ storeSchedule($yearSchedule);
                 clndr = $('.calendar').clndr({
                   template: $('#template-calendar').html(), //Get template from HTML
                   events: eventsArray, //Get events from given array
-                });
-                // bind month navigation to the left and right arrow keys
-                $(document).keydown( function(e) {
-                  if(e.keyCode == 37) {
-                    // left arrow
-                    clndr.back();
-                  }
-                  if(e.keyCode == 39) {
-                    // right arrow
-                    clndr.forward();
-                  }
                 });
               });
             </script>
