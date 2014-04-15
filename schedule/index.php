@@ -2,6 +2,7 @@
 
 require "../graham.php";
 $yearSchedule = genYear();
+storeSchedule($yearSchedule);
 
 ?>
 <!DOCTYPE html>
@@ -29,9 +30,9 @@ $yearSchedule = genYear();
               <li class="active"><a href="/schedule">Create schedule</a></li>
               <li><a href="/print">Print</a></li>
             </ul>
-            </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-          </nav>
+          </div><!-- /.navbar-collapse -->
+       </div><!-- /.container-fluid -->
+      </nav>
           <div id="content">
             <div class="container">
               <div class="calendar">
@@ -55,19 +56,17 @@ $yearSchedule = genYear();
                       <tr>
                         <% for (var j = 0; j < 7; j++){ %>
                           <% var d = j + i * 7; %>
+                        <% if (days[d].events[0]) { %>
+                          <% if (days[d].events[0].title.length > 2) { %>
+                            <% days[d].classes += " holiday"; %>
+                          <% } %>
+                        <% } %>
                         <td class="<%= days[d].classes %>">
                           <div class="day-contents">
                             <%= days[d].day %>
-                            <% var dayDate = moment(days[d]).format('YYYY-MM-DD'); %>
                             <div class="event-title">
                               <% if (days[d].events[0]) { %>
-                                <% if (days[d].events[0]['title'].length > 2) { %>
-                                  <span class="long">
-                                    <%= days[d].events[0]['title'] %>
-                                  </span>
-                                <% } else { %>
-                                  <%= days[d].events[0]['title'] %>
-                                <% } %>
+                                <input type="text" value="<%= days[d].events[0]['title'] %>">
                               <% } %>
                             </div>
                           </div>
