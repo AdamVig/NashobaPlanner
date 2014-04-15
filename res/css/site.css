@@ -36,6 +36,20 @@ footer {
 .calendar .header-day {
   font-size: 1.25em;
 }
+/* Today */
+.calendar .clndr .clndr-table tr .day.event.today {
+  background-color: #B871FF;
+}
+.calendar .clndr .clndr-table tr .day.event.today:hover {
+  background-color: #A448FF;
+}
+/* Holidays */
+.calendar .clndr .clndr-table tr .day.event.holiday {
+  background-color: #FFC559;
+}
+.calendar .clndr .clndr-table tr .day.event.holiday:hover {
+  background-color: #FFB935;
+}
 @media (max-width: 590px) {
   .calendar .title {
     font-size: 1.4em;
