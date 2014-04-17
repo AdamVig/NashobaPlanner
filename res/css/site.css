@@ -32,7 +32,7 @@ footer {
   font-size: 1.5em;
   font-weight: bolder;
 }
-.event-title .long {
+.event-title .holiday {
   font-size: 0.9em;
 }
 .calendar .header-day {
@@ -58,11 +58,10 @@ footer {
   text-align: center;
   resize: none; /* Hide resize corner */
   vertical-align: middle;
-}
-.day.event input, .day.event textarea {
   background-color: transparent;
   border: none;
   padding: 2px;
+  overflow: hidden;
 }
 .day.event input:focus, .day.event textarea:focus {
   outline: 0;
@@ -72,13 +71,13 @@ footer {
   .calendar .title {
     font-size: 1.4em;
   }
-  .event-title .long {
+  .event-title .holiday {
     font-size: 0.5em;
   }
 }
 @media (min-width: 768px) {
-  .event-title .long {
-    font-size: 0.8em;
+  .event-title .holiday {
+    font-size: 0.7em;
   }
 }
 @media (min-width: 1000px) {
@@ -91,7 +90,7 @@ footer {
   .event-title {
     font-size: 2em;
   }
-  .event-title .long {
+  .event-title .holiday {
     font-size: 1.1em;
   }
 }
