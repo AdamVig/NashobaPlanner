@@ -24,8 +24,10 @@ footer {
 /* ==========================================================================
    CALENDAR
    ========================================================================== */
+.calendar .clndr .clndr-table tr .day .day-contents {
+  height: 100%;
+}
 .event-title {
-  height: inherit;
   text-align: center;
   font-size: 1.5em;
   font-weight: bolder;
@@ -50,18 +52,21 @@ footer {
 .calendar .clndr .clndr-table tr .day.event.holiday:hover {
   background-color: #FFB935;
 }
-.calendar .clndr .clndr-table tr .day.event input {
-  width: 40px;
-}
-.calendar .clndr .clndr-table tr .day.event.holiday textarea {
+.calendar .clndr .clndr-table tr .day.event input, .event-title, .day.event.holiday textarea {
+  height: 100%;
   width: 100%;
   text-align: center;
   resize: none; /* Hide resize corner */
+  vertical-align: middle;
 }
-.calendar .clndr .clndr-table tr .day.event input, .calendar .clndr .clndr-table tr .day.event textarea {
+.day.event input, .day.event textarea {
   background-color: transparent;
-  border: 1px solid #5B5E51;
+  border: none;
   padding: 2px;
+}
+.day.event input:focus, .day.event textarea:focus {
+  outline: 0;
+  background-color: #ccc;
 }
 @media (max-width: 590px) {
   .calendar .title {
