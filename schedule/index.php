@@ -36,7 +36,7 @@ storeSchedule($yearSchedule);
           <div id="content">
             <div class="container">
               <div class="calendar">
-                <script type="text/template" id="template-calendar">
+                <script type="text/template" id="template">
                   <div class="text-center">
                     <button class="btn btn-primary pull-left clndr-previous-button">Previous<span class="hidden-xs"> Month</span></button>
                     <span class="title"><%= month %> <%= year %></span>
@@ -93,10 +93,10 @@ storeSchedule($yearSchedule);
             <script src="../res/js/clndr.js"></script>
             <script>
               $(document).ready( function() {
-                var eventsArray = <?php echo json_encode($yearSchedule); ?>;
+                var events = <?php echo json_encode($yearSchedule); ?>;
                 clndr = $('.calendar').clndr({
-                  template: $('#template-calendar').html(), //Get template from HTML
-                  events: eventsArray, //Get events from given array
+                  template: $('#template').html(), //Get template from HTML
+                  events: events, //Get events from given array
                 });
               });
             </script>
