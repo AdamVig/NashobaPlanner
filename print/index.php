@@ -34,9 +34,11 @@ $yearSchedule = genYear();
       </nav>
       <div id="content">
         <div class="container">
+          <!-- Print Button -->
           <div class="controls text-center">
             <button onclick="window.print();" class="btn btn-success btn-lg print">Print Schedule</button>
           </div>
+          <!-- Shared Template for calendar -->
           <script type="text/template" class="template">
             <div class="text-center">
               <span class="title"><%= month %> <%= year %></span>
@@ -80,6 +82,7 @@ $yearSchedule = genYear();
               </tbody>
             </table>
           </script>
+          <!-- Targets for calendars for each month -->
           <div id="calendar8" class="calendar print-calendar"></div>
           <div id="calendar9" class="calendar print-calendar"></div>
           <div id="calendar10" class="calendar print-calendar"></div>
@@ -101,18 +104,26 @@ $yearSchedule = genYear();
       <script src="../res/js/clndr.js"></script>
       <script src="./print.js"></script>
       <script>
-        var events = <?php echo json_encode($yearSchedule); ?>;
+        var events = <?php echo json_encode($yearSchedule); ?>; //Events for the year
+        var date = new Date();
+
         for (var month = 0; month <= 11; month++) {
-          if ($('#calendar' + month).is('*')) { //Month target exists
+
+          if ($('#calendar' + month).is('*')) { //Month target div exists
+
+            //Render calendar
             clndr = $('#calendar' + month).clndr({
               template: $('.template').html(), //Get template from HTML
               events: events, //Get events from given array
             });
-            if (Date.now().getMonth() > 6) {
-              clndr.previousYear();
-            } else {
+            
+            //Date is after June & calendar month is Sept-Dec
+            if (date.getMonth() > 6 && month > 7) {
               clndr.nextYear();
+            } else if (date.getMonth() < 6 && month > 7) {
+              clndr.previousYear();
             }
+
             clndr.setMonth(month);
           }
         }
