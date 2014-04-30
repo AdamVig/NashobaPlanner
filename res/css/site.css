@@ -105,7 +105,11 @@ footer {
 }
 
 @media print {
+  .calendar {
+    page-break-before: always;
+  }
   nav, footer, .controls {
     visibility: hidden;
+    display: none;
   }
 }
