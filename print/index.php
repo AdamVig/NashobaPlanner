@@ -1,6 +1,7 @@
 <?php
 
 require "../graham.php";
+require "../res/php/mPDF/mpdf.php";
 $yearSchedule = genYear();
 
 ?>
@@ -25,9 +26,9 @@ $yearSchedule = genYear();
           </div>
           <div class="collapse navbar-collapse" id="collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/">Home</a></li>
-              <li><a href="/schedule">Create schedule</a></li>
-              <li class="active"><a href="/print">Print</a></li>
+              <li><a href="../">Home</a></li>
+              <li><a href="../schedule">Schedule</a></li>
+              <li class="active"><a href="#">Print</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -36,7 +37,7 @@ $yearSchedule = genYear();
         <div class="container">
           <!-- Print Button -->
           <div class="controls text-center">
-            <button onclick="window.print();" class="btn btn-success btn-lg print">Print Schedule</button>
+            <button id="print" class="btn btn-success btn-lg print">Print Schedule</button>
           </div>
           <!-- Shared Template for calendar -->
           <script type="text/template" class="template">
@@ -83,16 +84,18 @@ $yearSchedule = genYear();
             </table>
           </script>
           <!-- Targets for calendars for each month -->
-          <div id="calendar8" class="calendar print-calendar"></div>
-          <div id="calendar9" class="calendar print-calendar"></div>
-          <div id="calendar10" class="calendar print-calendar"></div>
-          <div id="calendar11" class="calendar print-calendar"></div>
-          <div id="calendar0" class="calendar print-calendar"></div>
-          <div id="calendar1" class="calendar print-calendar"></div>
-          <div id="calendar2" class="calendar print-calendar"></div>
-          <div id="calendar3" class="calendar print-calendar"></div>
-          <div id="calendar4" class="calendar print-calendar"></div>
-          <div id="calendar5" class="calendar print-calendar"></div>
+          <div id="calendars">
+            <div id="calendar8" class="calendar print-calendar"></div>
+            <div id="calendar9" class="calendar print-calendar"></div>
+            <div id="calendar10" class="calendar print-calendar"></div>
+            <div id="calendar11" class="calendar print-calendar"></div>
+            <div id="calendar0" class="calendar print-calendar"></div>
+            <div id="calendar1" class="calendar print-calendar"></div>
+            <div id="calendar2" class="calendar print-calendar"></div>
+            <div id="calendar3" class="calendar print-calendar"></div>
+            <div id="calendar4" class="calendar print-calendar"></div>
+            <div id="calendar5" class="calendar print-calendar"></div>
+          </div>
         </div>
       </div>
       <footer class="container">
@@ -102,7 +105,6 @@ $yearSchedule = genYear();
       <script src="../res/js/moment-2.5.1.js"></script>
       <script src="../res/js/json2.js"></script>
       <script src="../res/js/clndr.js"></script>
-      <script src="./print.js"></script>
       <script>
         var events = <?php echo json_encode($yearSchedule); ?>; //Events for the year
         var date = new Date();
@@ -127,6 +129,18 @@ $yearSchedule = genYear();
             clndr.setMonth(month);
           }
         }
+
+        var html = $('#calendars').html();
+
+        $('#print').click(function() {
+          $.post (
+            "./print.php",
+            html, //Data in POST
+            function(data, textStatus, jqXHR) {
+              console.log(data);
+            }
+          );
+        });
       </script>
     </div>
   </body>
