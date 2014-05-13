@@ -130,16 +130,17 @@ $yearSchedule = genYear();
           }
         }
 
-        var html = $('#calendars').html();
+        var html = "<" + $('#calendars').html();
 
         $('#print').click(function() {
-          $.post (
-            "./print.php",
-            html, //Data in POST
-            function(data, textStatus, jqXHR) {
+          $.ajax({
+            type: 'POST',
+            url: 'print.php',
+            data: html,
+            success: function(data){
               console.log(data);
             }
-          );
+          });
         });
       </script>
     </div>
