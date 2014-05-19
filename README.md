@@ -13,13 +13,18 @@ This project will result in a web interface for creating the Nashoba schedule. T
 1. Set up workspaces
 2. Develop a functional layout for the website that will act as a frameowrk for the interface
 3. Create a function that outputs the schedule for the year
-4. Display the above function's output in a calendar view
+4. Create a function that stores the schedule in a database
+4. Display the schedule in a calendar view
+5. Develop a page that prints the whole year's calendar
 
 ###Stretch Goals
 These are features that we will add if we have time.
 + Calculate how many hours each class period will meet over the course of the year
 + Output schedule to a Google Calendar
 + Distribute schedule to all staff via email
++ Output schedule to PDF
+	+ **Status:** failure (attempted but could not complete)
+	+ **Reason:** could not get PDF libraries to work 
 
 ##Technical Specifications
 ###Components
@@ -40,26 +45,7 @@ Graham and I will collaborate using the industry standard, git version control. 
 
 Graham will work on the backend and Adam will focus on the interface.
 
-###Deployment
-The application will be hosted online, which will allow users to access it from home and school. We will deploy our application to Heroku. This is a Platform as a Service (PaaS) company that provides easily scalable hosting for free. Due to the school firewall, we cannot deploy at school. We will be able to test locally on the school computers but all deployment must be done at home. Other platforms we could use are Google App Engine, which is too complicated for our needs, and shared hosting, which costs money.
-
-##Website
-###Sitemap
-+ Home
-+ Schedule (view the year calendar)
-+ Print (print or download the schedule)
-
-###Plugin Documentation
-+ [http://kylestetz.github.io/CLNDR/](http://kylestetz.github.io/CLNDR/ "CLNDR")
-	+ Use: display a calendar using a template
-	+ Justification: making our own calendar library would be reinventing the wheel
-	+ Dependencies:
-		+ Underscore.js templating engine
-		+ JSON2.js JSON library
-		+ Moment.js time library
-
-##Backend
-###Data Format
+###Schedule Data Format
 + Data will be passed from the backend to the frontend in the following format:
 
 ```	
@@ -75,3 +61,22 @@ The application will be hosted online, which will allow users to access it from 
 }	
 	
 ```
+
+##Website
+###Sitemap
++ Home
++ Schedule (view the year calendar)
++ Print (print the schedule)
+
+###Plugin Documentation
++ [http://kylestetz.github.io/CLNDR/](http://kylestetz.github.io/CLNDR/ "CLNDR")
+	+ **Use:** display a calendar using a template
+	+ **Justification:** making our own calendar library would be reinventing the wheel
+	+ **Dependencies:**
+		+ Underscore.js templating engine
+		+ JSON2.js JSON library
+		+ Moment.js time library
++ [http://getbootstrap.com](http://getbootstrap.com "Bootstrap")
+	+ **Use:** frontend framework
+	+ **Justification:** allows rapid development of webpages and interfaces
+	+ **Dependency:** jQuery
