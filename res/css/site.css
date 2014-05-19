@@ -71,12 +71,12 @@ footer {
   .calendar .title {
     font-size: 1.4em;
   }
-  .event-title .holiday {
+  .holiday > .day-contents > .event-title > textarea {
     font-size: 0.5em;
   }
 }
 @media (min-width: 768px) {
-  .event-title .holiday {
+  .holiday > .day-contents > .event-title > textarea {
     font-size: 0.7em;
   }
 }
@@ -87,11 +87,11 @@ footer {
   .calendar .clndr .clndr-table tr {
     height: 141px; /* 66% increase */
   }
-  .event-title {
+  .event-title > input {
     font-size: 2em;
   }
-  .event-title .holiday {
-    font-size: 1.1em;
+  .holiday > .day-contents > .event-title > textarea {
+    font-size: 1em;
   }
 }
 
@@ -105,8 +105,18 @@ footer {
 }
 
 @media print {
+  #calendars:first-child {
+    /* Remove blank page before first calendar */
+    /*page-break-before: avoid;*/
+  }
   .calendar {
+    /* Each calendar on a separate page */
     page-break-before: always;
+    /*max-width: 100%;
+    width: 90%;*/
+  }
+  .calendar .clndr .clndr-table tr {
+    height: 200px;
   }
   nav, footer, .controls {
     visibility: hidden;
