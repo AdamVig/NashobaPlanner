@@ -1,7 +1,6 @@
 <?php
 
 require "../graham.php";
-require "../res/php/mPDF/mpdf.php";
 $yearSchedule = genYear();
 
 ?>
@@ -130,17 +129,9 @@ $yearSchedule = genYear();
           }
         }
 
-        var html = "<" + $('#calendars').html();
-
         $('#print').click(function() {
-          $.ajax({
-            type: 'POST',
-            url: 'print.php',
-            data: html,
-            success: function(data){
-              console.log(data);
-            }
-          });
+          window.alert('Please set print orientation to landscape.');
+          window.print();
         });
       </script>
     </div>
