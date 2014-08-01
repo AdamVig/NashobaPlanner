@@ -6,38 +6,50 @@ date_default_timezone_set ("America/New_York");
 function genYear()
 {
 
-    //Hours[A, B, C, D, E, F, G]
-    $YTD = [0, 0, 0, 0, 0, 0, 0];
-    $currentDate = new DateTime("2013-09-02");
-    $finalDate = new DateTime("2014-06-18");
+    $currentDate = new DateTime("2014-08-27");
+    $finalDate = new DateTime("2015-06-18");
     $dayCount = 0;
     $arrayPlace = 0;
-        for ($currentDate; $currentDate<=$finalDate; $currentDate->modify("+1 day")) {
+    $fullSchedule = [];
+
+        while ($currentDate<=$finalDate) {
+
+            //Not weekend
             if (($currentDate->format('w') != 6) && ($currentDate->format('w') != 0)) {
-                if (isSchool($currentDate)===true) {
-                    $fullSchedule[$arrayPlace]= ["date"=>getDay($dayCount,"normal",$currentDate)[0][0], "title"=>getDay($dayCount,"normal",$currentDate)[0][1]];
+
+                //Is school
+                if (isSchool($currentDate) === true) {
+
+                    $fullSchedule[$arrayPlace] = [
+                        "_id" => getDay($dayCount,"normal", $currentDate)[0][0],
+                        "title" => getDay($dayCount,"normal", $currentDate)[0][1]
+                    ];
+
                     $dayCount++;
                     $arrayPlace++;
-               }
-                else {
-                    $fullSchedule[$arrayPlace] =["date" => $currentDate->format('Y-m-d') ,"title" => isSchool($currentDate)];
+
+                //No school
+                } else {
+
+                    $fullSchedule[$arrayPlace] = [
+                        "date" => $currentDate->format('Y-m-d'),
+                        "title" => isSchool($currentDate)
+                    ];
                     $arrayPlace++;
                 }
             }
-            else if (isSchool($currentDate) != 1) {
-                $fullSchedule[$arrayPlace] =["date" => $currentDate->format('Y-m-d') ,"title" => isSchool($currentDate)];
-                $arrayPlace++;
-            }
+
+            //Go to the next day
+            $currentDate->modify("+1 day");
 
         }
 
-    $output = $fullSchedule;
-    return $output;
+    return $fullSchedule;
 }
 
+echo genYear();
 
-
-function getDay($dayNum,$type,$date)
+function getDay($dayNum, $type, $date)
 {
     $classMinutes = [0,0,0,0,0,0,0];
     $periods = ["A","B","C","D","E","F","G"];
